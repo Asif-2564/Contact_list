@@ -5,5 +5,8 @@
         <p>{{ contacts.last_name }}</p>
         <p>{{ contacts.phone_number}}</p>
         <p>{{ contacts.email }}</p>
+
+        <p><a href="{% url 'contact_edit' contacts.pk %}">+ Edit contact</a></p>
+        <p><a href="{% url 'contact_delete' contacts.pk %}">+ Delete Blog Post</a></p>
     </div>
 {% endblock content %}

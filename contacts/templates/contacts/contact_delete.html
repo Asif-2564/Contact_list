@@ -1,0 +1,10 @@
+{% extends 'contacts/base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Delete Contact</h1>
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ contacts.first_name }}" ?</p>
+        <input type="submit" value="confirm">
+    </form>
+</div>
+{% endblock content %}
