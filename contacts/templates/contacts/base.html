@@ -21,10 +21,7 @@
             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="{% url 'signup' %}">Register</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="{% url 'contact_new' %}">+New Contact</a>
@@ -34,6 +31,15 @@
     </div>
     </nav>
     <div>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
         {% block content %}
         {% endblock content %}
     </div>
